@@ -4,6 +4,8 @@ server:
     context-path: /
 
 spring:
+  thymeleaf:
+    enable: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/hr_manager?characterEncoding=utf8&autoReconnect=true&useSSL=false
