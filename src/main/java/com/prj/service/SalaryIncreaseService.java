@@ -5,6 +5,7 @@ import com.prj.repository.SalaryIncreaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -22,6 +23,10 @@ public class SalaryIncreaseService {
 
     public List<SalaryIncrease> getSalaryIncreaseByEmployeeId(String employeeID) {
         return salaryIncreaseRepository.findAllByEmployeeID(employeeID);
+    }
+
+    public List<SalaryIncrease> getSalaryIncreaseByDateRange(Instant startDate, Instant endDate) {
+        return salaryIncreaseRepository.findAllByDatetimeGreaterThanEqualAndDatetimeLessThanEqual(startDate, endDate);
     }
 
     public SalaryIncrease getSalaryIncreaseById(String id) {

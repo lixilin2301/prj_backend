@@ -11,6 +11,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/api/employee")
 public class EmployeeController {
@@ -63,5 +64,10 @@ public class EmployeeController {
     @GetMapping(path = "{employeeId}/increaseSalary/")
     public List<SalaryIncrease> saveEmployee(@PathVariable String employeeId) {
         return salaryIncreaseService.getSalaryIncreaseByEmployeeId(employeeId);
+    }
+
+    @GetMapping(path = "{employeeId}/increaseSalary/search")
+    public List<SalaryIncrease> saveEmployee(@RequestParam Instant startDate,@RequestParam Instant endDate) {
+        return salaryIncreaseService.getSalaryIncreaseByDateRange(startDate, endDate);
     }
 }
