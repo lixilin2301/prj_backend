@@ -62,12 +62,12 @@ public class EmployeeController {
     }
 
     @GetMapping(path = "{employeeId}/increaseSalary/")
-    public List<SalaryIncrease> saveEmployee(@PathVariable String employeeId) {
+    public List<SalaryIncrease> saveEmployeeIncreaseSalary(@PathVariable String employeeId) {
         return salaryIncreaseService.getSalaryIncreaseByEmployeeId(employeeId);
     }
 
     @GetMapping(path = "{employeeId}/increaseSalary/search")
-    public List<SalaryIncrease> saveEmployee(@RequestParam Instant startDate,@RequestParam Instant endDate) {
-        return salaryIncreaseService.getSalaryIncreaseByDateRange(startDate, endDate);
+    public List<SalaryIncrease> searchEmployeeIncreaseSalary(@PathVariable String employeeId, @RequestParam Instant startDate,@RequestParam Instant endDate) {
+        return salaryIncreaseService.getSalaryIncreaseByDateRange(employeeId, startDate, endDate);
     }
 }

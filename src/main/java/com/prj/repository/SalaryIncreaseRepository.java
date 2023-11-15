@@ -10,5 +10,5 @@ import java.util.List;
 public interface SalaryIncreaseRepository extends JpaRepository<SalaryIncrease, String> {
     List<SalaryIncrease> findAllByEmployeeID(String employeeID);
 
-    List<SalaryIncrease> findAllByDatetimeGreaterThanEqualAndDatetimeLessThanEqual(Instant startDate, Instant endDate);
+    List<SalaryIncrease> findAllByEmployeeIDAndDatetimeGreaterThanEqualAndDatetimeLessThanEqual(String employeeID, Instant startDate, Instant endDate);
 }

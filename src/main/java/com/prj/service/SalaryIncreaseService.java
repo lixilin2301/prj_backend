@@ -17,23 +17,11 @@ public class SalaryIncreaseService {
         salaryIncreaseRepository.save(salaryIncrease);
     }
 
-    public List<SalaryIncrease> getAllSalaryIncrease() {
-        return salaryIncreaseRepository.findAll();
-    }
-
     public List<SalaryIncrease> getSalaryIncreaseByEmployeeId(String employeeID) {
         return salaryIncreaseRepository.findAllByEmployeeID(employeeID);
     }
 
-    public List<SalaryIncrease> getSalaryIncreaseByDateRange(Instant startDate, Instant endDate) {
-        return salaryIncreaseRepository.findAllByDatetimeGreaterThanEqualAndDatetimeLessThanEqual(startDate, endDate);
-    }
-
-    public SalaryIncrease getSalaryIncreaseById(String id) {
-        return salaryIncreaseRepository.findById(id).orElse(null);
-    }
-
-    public void deleteSalaryIncreaseById(String id) {
-        salaryIncreaseRepository.deleteById(id);
+    public List<SalaryIncrease> getSalaryIncreaseByDateRange(String employeeID, Instant startDate, Instant endDate) {
+        return salaryIncreaseRepository.findAllByEmployeeIDAndDatetimeGreaterThanEqualAndDatetimeLessThanEqual(employeeID, startDate, endDate);
     }
 }
