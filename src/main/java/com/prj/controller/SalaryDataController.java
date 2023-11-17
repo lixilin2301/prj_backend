@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/api/salaryData")
 public class SalaryDataController {
@@ -23,13 +24,9 @@ public class SalaryDataController {
         return salaryDataService.getAllSalaryData();
     }
 
-    @GetMapping(path = "/analyze")
-    public List<Double> analyzeSalaryData() {
-        return salaryDataService.analyze();
-    }
-
     @PostMapping(path = "/import")
-    public void saveEmployeeKPI(@RequestBody List<SalaryData> salaryDataList) {
+    public List<Double> saveSalaryData(@RequestBody List<SalaryData> salaryDataList) {
         salaryDataService.addAllSalaryData(salaryDataList);
+        return salaryDataService.analyze();
     }
 }

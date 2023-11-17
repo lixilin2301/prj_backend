@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 @Setter
 @Entity
 @Table(name = "salary_data")
@@ -23,4 +22,20 @@ public class SalaryData {
 
     @Column
     private String salary;
+
+    public String getYears() {
+        return years;
+    }
+
+    public void setYears(String years) {
+        this.years = years;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
 }
